@@ -1,0 +1,19 @@
+<form [formGroup]="newEmployeeForm">
+    <div class="form-row">
+        <div class="form-group col">
+            <label>Title</label>
+            <select name="title" class="form-control" formControlName="title">
+                <option value=""></option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Ms">Ms</option>
+            </select>
+            <div class="messages text-danger text-left" *ngIf="(submitted || newEmployeeForm.get('title').touched) &&
+            newEmployeeForm.get('title').hasError('required')"> Title is required</div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary" (click)="onSubmit(newEmployeeForm)">Submit</button>
+    </div>
+</form>
